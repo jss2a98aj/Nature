@@ -64,7 +64,7 @@ public class NetherBerryBush extends BlockLeavesBase implements IPlantable
     @SideOnly(Side.CLIENT)
     public IIcon getIcon (int side, int metadata)
     {
-        return (field_150121_P ? fancyIcons : fastIcons)[metadata % 4 + (metadata < 12 ? 0 : 4)];
+        return (Blocks.leaves.isOpaqueCube() ? fastIcons : fancyIcons)[metadata % 4 + (metadata < 12 ? 0 : 4)];
     }
 
     /* Bushes are stored by size then type */
@@ -173,11 +173,6 @@ public class NetherBerryBush extends BlockLeavesBase implements IPlantable
         return false;
     }
 
-    public void setGraphicsLevel (boolean flag)
-    {
-        field_150121_P = flag;
-    }
-
     @Override
     public boolean renderAsNormalBlock ()
     {
@@ -191,9 +186,9 @@ public class NetherBerryBush extends BlockLeavesBase implements IPlantable
     }
 
     @Override
-    public boolean shouldSideBeRendered (IBlockAccess iblockaccess, int i, int j, int k, int l)
+    public boolean shouldSideBeRendered (IBlockAccess iblockaccess, int x, int y, int z, int meta)
     {
-    	return l > 7 || field_150121_P ? super.shouldSideBeRendered(iblockaccess, i, j, k, l) : true;
+    	return meta > 7 || Blocks.leaves.isOpaqueCube() ? super.shouldSideBeRendered(iblockaccess, x, y, z, meta) : true;
     }
 
     /* Bush growth */

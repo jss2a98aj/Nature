@@ -6,6 +6,7 @@ import java.util.Random;
 import mods.natura.common.NContent;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -72,12 +73,18 @@ public class OverworldLeaves extends NLeaves
     }
 
     @Override
+    public boolean isOpaqueCube ()
+    {
+    	return Blocks.leaves.isOpaqueCube();
+    }
+
+    @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon (int side, int metadata)
     {
         int meta = metadata % 4;
 
-        return (field_150121_P ? fancyIcons : fastIcons)[meta];
+        return (Blocks.leaves.isOpaqueCube() ? fastIcons : fancyIcons)[meta];
     }
 
     @Override
