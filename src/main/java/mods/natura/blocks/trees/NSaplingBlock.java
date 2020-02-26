@@ -101,6 +101,7 @@ public abstract class NSaplingBlock extends BlockSapling
     @Override
     public void func_149878_d(World world, int x, int y, int z, Random random)
     {
+    	if (!net.minecraftforge.event.terraingen.TerrainGen.saplingGrowTree(world, random, x, y, z)) return;
         int meta = world.getBlockMetadata(x, y, z);
 
         world.setBlock(x, y, z, Blocks.air);
