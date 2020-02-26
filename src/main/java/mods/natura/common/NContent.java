@@ -1,16 +1,11 @@
 package mods.natura.common;
 
-import mods.natura.blocks.NPressurePlate;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.EnumMap;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 
-import org.apache.commons.lang3.ArrayUtils;
-
+import cpw.mods.fml.common.IFuelHandler;
+import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 import mods.natura.Natura;
 import mods.natura.blocks.BarricadeBlock;
 import mods.natura.blocks.CloudBlock;
@@ -18,6 +13,7 @@ import mods.natura.blocks.GrassBlock;
 import mods.natura.blocks.GrassSlab;
 import mods.natura.blocks.NButton;
 import mods.natura.blocks.NFenceGate;
+import mods.natura.blocks.NPressurePlate;
 import mods.natura.blocks.NSlabBase;
 import mods.natura.blocks.NStairs;
 import mods.natura.blocks.NTrapdoor;
@@ -42,6 +38,7 @@ import mods.natura.blocks.tech.NetherrackFurnaceBlock;
 import mods.natura.blocks.tech.NetherrackFurnaceLogic;
 import mods.natura.blocks.tech.RespawnObelisk;
 import mods.natura.blocks.trees.DarkTreeBlock;
+import mods.natura.blocks.trees.FloraSaplingBlock;
 import mods.natura.blocks.trees.LogTwoxTwo;
 import mods.natura.blocks.trees.NDoor;
 import mods.natura.blocks.trees.NLeaves;
@@ -49,11 +46,9 @@ import mods.natura.blocks.trees.NLeavesDark;
 import mods.natura.blocks.trees.NLeavesNocolor;
 import mods.natura.blocks.trees.NetherSaplingBlock;
 import mods.natura.blocks.trees.OverworldLeaves;
-import mods.natura.blocks.trees.RareSaplingBlock;
-import mods.natura.blocks.trees.FloraSaplingBlock;
-import mods.natura.items.blocks.FloraSaplingItem;
 import mods.natura.blocks.trees.OverworldTreeBlock;
 import mods.natura.blocks.trees.Planks;
+import mods.natura.blocks.trees.RareSaplingBlock;
 import mods.natura.blocks.trees.SaguaroBlock;
 import mods.natura.blocks.trees.SimpleLog;
 import mods.natura.blocks.trees.TreeBlock;
@@ -75,28 +70,23 @@ import mods.natura.items.PlantItem;
 import mods.natura.items.SeedBag;
 import mods.natura.items.SeedFood;
 import mods.natura.items.SpawnEgg;
-import mods.natura.items.blocks.BarricadeItem;
 import mods.natura.items.blocks.BerryBushItem;
 import mods.natura.items.blocks.CloudItem;
 import mods.natura.items.blocks.DarkTreeItem;
-import mods.natura.items.blocks.FenceItem;
+import mods.natura.items.blocks.FloraSaplingItem;
 import mods.natura.items.blocks.GlowshroomItem;
 import mods.natura.items.blocks.GrassBlockItem;
-import mods.natura.items.blocks.GrassSlabItem;
 import mods.natura.items.blocks.LogTwoxTwoItem;
-import mods.natura.items.blocks.NAlternateItem;
 import mods.natura.items.blocks.NDoorItem;
 import mods.natura.items.blocks.NLeavesDarkItem;
 import mods.natura.items.blocks.NLeavesItem;
 import mods.natura.items.blocks.NetherBerryBushItem;
-import mods.natura.items.blocks.NetherSaplingItem;
 import mods.natura.items.blocks.NetherGlassItem;
+import mods.natura.items.blocks.NetherSaplingItem;
 import mods.natura.items.blocks.NoColorLeavesItem;
 import mods.natura.items.blocks.OverworldLeavesItem;
-import mods.natura.items.blocks.PlankSlabItem;
-import mods.natura.items.blocks.RareSaplingItem;
 import mods.natura.items.blocks.OverworldTreeItem;
-import mods.natura.items.blocks.PlanksItem;
+import mods.natura.items.blocks.RareSaplingItem;
 import mods.natura.items.blocks.RedwoodItem;
 import mods.natura.items.blocks.SaguaroItem;
 import mods.natura.items.blocks.TreeItem;
@@ -113,24 +103,16 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
-import net.minecraft.item.crafting.ShapedRecipes;
-import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
-import net.minecraftforge.fluids.FluidContainerRegistry;
-import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
-import cpw.mods.fml.common.IFuelHandler;
-import cpw.mods.fml.common.registry.EntityRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class NContent implements IFuelHandler
 {
@@ -784,9 +766,10 @@ public class NContent implements IFuelHandler
     @Override
     public int getBurnTime (ItemStack fuel)
     {
-    	if (fuel.getItem() == new ItemStack(floraSapling).getItem()
-    		|| fuel.getItem() == new ItemStack(rareSapling).getItem()
-    		|| fuel.getItem() == new ItemStack(netherSapling).getItem())
+    	Item fuelItem = fuel.getItem();
+    	if (fuelItem == new ItemStack(floraSapling).getItem()
+    		|| fuelItem == new ItemStack(rareSapling).getItem()
+    		|| fuelItem == new ItemStack(netherSapling).getItem())
     		return 100;
         return 0;
     }

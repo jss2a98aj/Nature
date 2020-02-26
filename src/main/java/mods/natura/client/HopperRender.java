@@ -1,5 +1,7 @@
 package mods.natura.client;
 
+import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
+import cpw.mods.fml.client.registry.RenderingRegistry;
 import mods.natura.blocks.tech.BlazeHopper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHopper;
@@ -8,8 +10,6 @@ import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
-import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
-import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class HopperRender implements ISimpleBlockRenderingHandler
 {

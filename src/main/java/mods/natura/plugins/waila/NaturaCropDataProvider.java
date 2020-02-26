@@ -1,8 +1,12 @@
 package mods.natura.plugins.waila;
 
 import java.util.List;
-import cpw.mods.fml.common.Optional;
 
+import cpw.mods.fml.common.Optional;
+import mcp.mobius.waila.api.IWailaConfigHandler;
+import mcp.mobius.waila.api.IWailaDataAccessor;
+import mcp.mobius.waila.api.IWailaDataProvider;
+import mods.natura.blocks.crops.CropBlock;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
@@ -10,10 +14,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
-import mcp.mobius.waila.api.IWailaConfigHandler;
-import mcp.mobius.waila.api.IWailaDataAccessor;
-import mcp.mobius.waila.api.IWailaDataProvider;
-import mods.natura.blocks.crops.CropBlock;
 
 @Optional.Interface(iface="mcp.mobius.waila.api.IWailaDataProvider", modid="Waila", striprefs = true)
 public class NaturaCropDataProvider implements IWailaDataProvider

@@ -2,7 +2,6 @@ package mantle.world;
 
 import java.io.Serializable;
 
-import mantle.world.CoordTuple;
 import net.minecraft.world.chunk.Chunk;
 
 /**

@@ -2,8 +2,6 @@ package mods.natura.blocks;
 
 import mods.natura.Natura;
 import mods.natura.common.NContent;
-import mods.natura.Natura;
-import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;

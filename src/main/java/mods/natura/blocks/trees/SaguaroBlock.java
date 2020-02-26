@@ -2,9 +2,11 @@ package mods.natura.blocks.trees;
 
 import java.util.Random;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import mods.natura.Natura;
 import mods.natura.client.SaguaroRenderer;
 import mods.natura.common.NContent;
-import mods.natura.Natura;
 import mods.natura.worldgen.SaguaroGen;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -20,8 +22,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class SaguaroBlock extends Block implements IPlantable
 {

@@ -2,8 +2,8 @@ package mods.natura.blocks.crops;
 
 import java.util.Random;
 
-import mods.natura.common.NContent;
 import mods.natura.Natura;
+import mods.natura.common.NContent;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;

@@ -3,7 +3,6 @@ package mods.natura.blocks.trees;
 import java.util.Random;
 
 import mods.natura.Natura;
-import net.minecraft.init.Blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLog;
 import net.minecraft.item.Item;

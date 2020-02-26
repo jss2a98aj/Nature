@@ -2,16 +2,13 @@ package mods.natura.plugins;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Optional;
-import mods.natura.plugins.IPluginBase;
-
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLInterModComms;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import mods.natura.common.NContent;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
-import cpw.mods.fml.common.event.FMLInterModComms;
 
 
 public class Buildcraft implements IPluginBase

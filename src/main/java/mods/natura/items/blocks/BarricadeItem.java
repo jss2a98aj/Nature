@@ -1,13 +1,12 @@
 package mods.natura.items.blocks;
 /* Stolen directly from TiC */
 
-import cpw.mods.fml.relauncher.*;
-import java.util.List;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class BarricadeItem extends ItemBlock

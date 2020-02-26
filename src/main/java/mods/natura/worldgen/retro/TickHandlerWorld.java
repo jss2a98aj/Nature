@@ -3,12 +3,13 @@ package mods.natura.worldgen.retro;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
-import mantle.world.ChunkCoord;
-import net.minecraft.world.World;
+
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.Phase;
 import cpw.mods.fml.common.gameevent.TickEvent.Type;
 import cpw.mods.fml.common.gameevent.TickEvent.WorldTickEvent;
+import mantle.world.ChunkCoord;
+import net.minecraft.world.World;
 
 public class TickHandlerWorld
 {

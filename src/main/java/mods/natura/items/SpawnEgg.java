@@ -2,6 +2,8 @@ package mods.natura.items;
 
 import java.util.List;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import mods.natura.entity.BabyHeatscarSpider;
 import mods.natura.entity.HeatscarSpider;
 import mods.natura.entity.ImpEntity;
@@ -18,8 +20,6 @@ import net.minecraft.util.Facing;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class SpawnEgg extends Item
 {

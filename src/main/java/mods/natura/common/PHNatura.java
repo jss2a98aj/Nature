@@ -4,9 +4,8 @@ import java.io.File;
 
 import cpw.mods.fml.common.Loader;
 import mods.natura.Natura;
-import net.minecraftforge.common.config.Configuration;
-
 import mods.natura.plugins.PluginManager;
+import net.minecraftforge.common.config.Configuration;
 
 public class PHNatura
 {

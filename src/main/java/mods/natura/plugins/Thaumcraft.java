@@ -1,21 +1,16 @@
 package mods.natura.plugins;
 
 import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.Optional.Method;
-import mods.natura.plugins.IPluginBase;
-
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLInterModComms;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import mods.natura.common.NContent;
+import net.minecraft.item.ItemStack;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
-import mods.natura.common.NContent;
-import net.minecraft.item.ItemStack;
-import cpw.mods.fml.common.event.FMLInterModComms;
-
-import cpw.mods.fml.common.Optional;
 
 public class Thaumcraft implements IPluginBase
 {

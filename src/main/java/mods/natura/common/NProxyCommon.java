@@ -6,10 +6,4 @@ public class NProxyCommon
     {
 
     }
-
-    public void addNames ()
-    {
-        // Deprecated: Now handled by Minecraft's .lang loader.
-    }
-
 }

@@ -1,11 +1,9 @@
 package mods.natura.client;
 
-import org.lwjgl.opengl.GL11;
-
-import cpw.mods.fml.client.registry.*;
+import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
+import cpw.mods.fml.client.registry.RenderingRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.world.IBlockAccess;
 
 public class BarricadeRender implements ISimpleBlockRenderingHandler

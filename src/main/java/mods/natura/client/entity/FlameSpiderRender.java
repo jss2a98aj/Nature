@@ -1,12 +1,12 @@
 package mods.natura.client.entity;
 
+import org.lwjgl.opengl.GL11;
+
 import mods.natura.entity.HeatscarSpider;
 import net.minecraft.client.renderer.entity.RenderSpider;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
-
-import org.lwjgl.opengl.GL11;
 
 public class FlameSpiderRender extends RenderSpider
 {

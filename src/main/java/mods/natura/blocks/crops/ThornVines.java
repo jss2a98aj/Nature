@@ -1,6 +1,7 @@
 package mods.natura.blocks.crops;
 
-import mods.natura.Natura;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import mods.natura.Natura;
 import net.minecraft.block.BlockVine;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -10,8 +11,6 @@ import net.minecraft.entity.monster.EntityGhast;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class ThornVines extends BlockVine
 {

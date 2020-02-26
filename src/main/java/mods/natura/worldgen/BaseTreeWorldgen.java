@@ -2,6 +2,7 @@ package mods.natura.worldgen;
 
 import java.util.Random;
 
+import cpw.mods.fml.common.IWorldGenerator;
 import mods.natura.common.NContent;
 import mods.natura.common.PHNatura;
 import net.minecraft.block.Block;
@@ -9,7 +10,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import cpw.mods.fml.common.IWorldGenerator;
 
 public class BaseTreeWorldgen implements IWorldGenerator
 {

@@ -2,19 +2,14 @@ package mods.natura.plugins;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Optional;
-import mods.natura.plugins.IPluginBase;
-
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLInterModComms;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import mcp.mobius.waila.api.IWailaDataProvider;
 import mcp.mobius.waila.api.IWailaRegistrar;
-import mods.natura.blocks.crops.CropBlock;
-
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import mods.natura.Natura;
-
-import cpw.mods.fml.common.event.FMLInterModComms;
-
+import mods.natura.blocks.crops.CropBlock;
 import mods.natura.plugins.waila.NaturaCropDataProvider;
 
 public class Waila implements IPluginBase

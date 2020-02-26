@@ -1,14 +1,10 @@
 package mods.natura.plugins;
 
-import mods.natura.plugins.IPluginBase;
-
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.common.config.Configuration;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import mods.natura.Natura;
-
-import mods.natura.plugins.*;
+import net.minecraftforge.common.config.Configuration;
 
 public class PluginManager
 {

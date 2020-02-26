@@ -1,15 +1,14 @@
 package mods.natura.blocks.trees;
 
-import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenerator;
+import java.util.Random;
 
 import mods.natura.common.NContent;
 import mods.natura.worldgen.BushTreeGen;
 import mods.natura.worldgen.EucalyptusTreeGenShort;
 import mods.natura.worldgen.RedwoodTreeGen;
 import mods.natura.worldgen.SakuraTreeGen;
-
-import java.util.Random;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class FloraSaplingBlock extends NSaplingBlock
 {

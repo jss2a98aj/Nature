@@ -1,9 +1,8 @@
 package mods.natura.plugins;
 
-import cpw.mods.fml.common.Optional;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 public interface IPluginBase
 {

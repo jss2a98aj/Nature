@@ -1,5 +1,8 @@
 package mods.natura.client;
 
+import org.lwjgl.opengl.GL11;
+
+import cpw.mods.fml.client.registry.RenderingRegistry;
 import mods.natura.client.entity.FlameSpiderBabyRender;
 import mods.natura.client.entity.FlameSpiderRender;
 import mods.natura.client.entity.ImpModel;
@@ -16,11 +19,6 @@ import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureUtil;
 import net.minecraft.util.ResourceLocation;
-
-import org.lwjgl.opengl.GL11;
-
-import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.common.FMLCommonHandler;
 
 public class NProxyClient extends NProxyCommon
 {
