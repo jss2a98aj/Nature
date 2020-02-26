@@ -30,3 +30,4 @@ Thumbs.db
 gradlew
 gradlew.bat
 /gradle/
+/eclipse/
