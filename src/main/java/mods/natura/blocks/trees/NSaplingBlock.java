@@ -41,7 +41,8 @@ public abstract class NSaplingBlock extends BlockSapling
     public EnumSaplingType getSaplingType(int meta) {
         int saplingOrdinal = meta & ~growFlag;
         if (saplingOrdinal >= saplingTypes.length)
-            throw new RuntimeException("Unknown sapling type. Meta: " + meta);
+        	return saplingTypes[0];
+            //throw new RuntimeException("Unknown sapling type. Meta: " + meta);
         return saplingTypes[saplingOrdinal];
     }
 
