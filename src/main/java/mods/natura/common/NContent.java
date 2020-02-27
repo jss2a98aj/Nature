@@ -114,8 +114,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
-public class NContent implements IFuelHandler
-{
+public class NContent implements IFuelHandler {
     public void preInit ()
     {
         spawnEgg = new SpawnEgg().setUnlocalizedName("natura.spawnegg");
@@ -399,11 +398,9 @@ public class NContent implements IFuelHandler
         addRecipes();
     }
 
-    public void addRecipes ()
-    {
+    public void addRecipes ()  {
     	//Crops
-    	if (PHNatura.enableSeedBags)
-    	{
+    	if (PHNatura.enableSeedBags) {
     		GameRegistry.addRecipe(new ItemStack(wheatBag, 1, 0), "sss", "sss", "sss", 's', Items.wheat_seeds);
     		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(barleyBag, 1, 0), "sss", "sss", "sss", 's', "seedBarley"));
     		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(potatoBag, 1, 0), "sss", "sss", "sss", 's', "cropPotato"));
@@ -458,7 +455,8 @@ public class NContent implements IFuelHandler
         //Clouds
         GameRegistry.addRecipe(new ItemStack(Items.coal, 1, 1), "ccc", "ccc", "ccc", 'c', new ItemStack(cloud, 1, 2));
         GameRegistry.addRecipe(new ItemStack(plantItem, 1, 4), "cc", "cc", 'c', new ItemStack(cloud, 1, 3));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.gunpowder, 1, 0), "cc", "cc", 'c', "dustSulfur"));
+        if (PHNatura.enableSulferRecipe)
+            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.gunpowder, 1, 0), "cc", "cc", 'c', "dustSulfur"));
 
         //Trees
         for (int i = 0; i < 3; i++)
@@ -475,19 +473,6 @@ public class NContent implements IFuelHandler
 
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(plantItem, 1, 5), " s ", "#s#", "#s#", 's', "stickWood", '#', new ItemStack(floraLeavesNoColor, 1, 1)));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.arrow, 4, 0), " f ", "#s#", " # ", 's', "stickWood", '#', new ItemStack(plantItem, 1, 5), 'f', Items.flint));
-
-        recipes = CraftingManager.getInstance().getRecipeList();
-
-        if (PHNatura.enableDoors)
-        {
-        	GameRegistry.addRecipe(new ItemStack(doorItem, 1, 0), "##", "##", "##", '#', new ItemStack(planks, 1, 3));
-        	GameRegistry.addRecipe(new ItemStack(doorItem, 1, 1), "##", "##", "##", '#', new ItemStack(planks, 1, 0));
-        	GameRegistry.addRecipe(new ItemStack(doorItem, 1, 2), "##", "##", "##", '#', new ItemStack(planks, 1, 5));
-        	GameRegistry.addRecipe(new ItemStack(doorItem, 1, 3), "##", "##", "##", '#', new ItemStack(planks, 1, 1));
-        	GameRegistry.addRecipe(new ItemStack(doorItem, 1, 4), "##", "##", "##", '#', new ItemStack(planks, 1, 2));
-        	GameRegistry.addRecipe(new ItemStack(doorItem, 1, 5), "##", "##", "##", '#', new ItemStack(planks, 1, 4));
-        	GameRegistry.addRecipe(new ItemStack(doorItem, 1, 6), "##", "##", "##", '#', new ItemStack(redwood, 1, 0));
-        }
 
         GameRegistry.addRecipe(new ItemStack(Items.leather, 2), "##", "##", '#', new ItemStack(plantItem, 1, 6));
 
@@ -510,6 +495,8 @@ public class NContent implements IFuelHandler
         impBootsStack.addEnchantment(Enchantment.featherFalling, 1);
         impBootsStack.addEnchantment(Enchantment.fireProtection, 1);
         GameRegistry.addRecipe(impBootsStack.copy(), "# #", "# #", '#', new ItemStack(plantItem, 1, 6));
+
+        GameRegistry.addShapelessRecipe(new ItemStack(flintAndBlaze, 1, 0), Items.blaze_rod, Items.flint);
 
         GameRegistry.addShapelessRecipe(new ItemStack(Blocks.soul_sand, 1, 0), heatSand, taintedSoil);
 
@@ -543,8 +530,7 @@ public class NContent implements IFuelHandler
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.daylight_detector), "GGG", "QQQ", "WWW", 'G', "glass", 'Q', "gemQuartz", 'W', "slabWood"));
     }
 
-    public void addOredictSupport ()
-    {
+    public void addOredictSupport () {
         //Food
         OreDictionary.registerOre("cropRaspberry", new ItemStack(berryItem, 1, 0));
         OreDictionary.registerOre("cropBlueberry", new ItemStack(berryItem, 1, 1));
@@ -580,15 +566,15 @@ public class NContent implements IFuelHandler
         OreDictionary.registerOre("taintedSoil", new ItemStack(taintedSoil, 1));
 
         //Saplings
-        OreDictionary.registerOre("treeSapling", new ItemStack(floraSapling, 1, Short.MAX_VALUE));
-        OreDictionary.registerOre("treeSapling", new ItemStack(rareSapling, 1, Short.MAX_VALUE));
-        OreDictionary.registerOre("treeSapling", new ItemStack(netherSapling, 1, Short.MAX_VALUE));
+        OreDictionary.registerOre("treeSapling", new ItemStack(floraSapling, 1, OreDictionary.WILDCARD_VALUE));
+        OreDictionary.registerOre("treeSapling", new ItemStack(rareSapling, 1, OreDictionary.WILDCARD_VALUE));
+        OreDictionary.registerOre("treeSapling", new ItemStack(netherSapling, 1, OreDictionary.WILDCARD_VALUE));
 
         //Leaves
-        OreDictionary.registerOre("treeLeaves", new ItemStack(floraLeaves, 1, Short.MAX_VALUE));
-        OreDictionary.registerOre("treeLeaves", new ItemStack(floraLeavesNoColor, 1, Short.MAX_VALUE));
-        OreDictionary.registerOre("treeLeaves", new ItemStack(rareLeaves, 1, Short.MAX_VALUE));
-        OreDictionary.registerOre("treeLeaves", new ItemStack(darkLeaves, 1, Short.MAX_VALUE));
+        OreDictionary.registerOre("treeLeaves", new ItemStack(floraLeaves, 1, OreDictionary.WILDCARD_VALUE));
+        OreDictionary.registerOre("treeLeaves", new ItemStack(floraLeavesNoColor, 1, OreDictionary.WILDCARD_VALUE));
+        OreDictionary.registerOre("treeLeaves", new ItemStack(rareLeaves, 1, OreDictionary.WILDCARD_VALUE));
+        OreDictionary.registerOre("treeLeaves", new ItemStack(darkLeaves, 1, OreDictionary.WILDCARD_VALUE));
 
         //Planks
         OreDictionary.registerOre("plankWood", new ItemStack(NContent.planks, 1, OreDictionary.WILDCARD_VALUE));
@@ -744,16 +730,13 @@ public class NContent implements IFuelHandler
     public static Item bowlStew;
 
     //Vanilla overrides and alternates
-    public static final String woodTextureNames[] = {"eucalyptus", "sakura", "ghostwood", "redwood", "bloodwood", "hopseed", "maple", "silverbell", "purpleheart", "tiger", "willow", "darkwood",
-            "fusewood"};
+    public static final String woodTextureNames[] = {"eucalyptus", "sakura", "ghostwood", "redwood", "bloodwood", "hopseed", "maple", "silverbell", "purpleheart", "tiger", "willow", "darkwood", "fusewood"};
     public static final String vanillaWoodNames[] = {"oak", "spruce", "birch", "jungle"};
     public static final String vanillaWoodNames2[] = {"acacia", "darkoak"};
 
 
     //Golem type things
     public static Block grassBlock;
-
-    public static List recipes;
 
     public static String[] append(String[] str, String toAppend)
     {

@@ -4,10 +4,12 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import mods.natura.client.GrassColorizerAlternate;
+import mods.natura.common.NContent;
 import mods.natura.items.blocks.GrassSlabItem;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.ColorizerGrass;
@@ -91,4 +93,11 @@ public class GrassSlab extends NSlabBase
     public void reg() {
     	GameRegistry.registerBlock(this, GrassSlabItem.class, "GrassSlab");
     }
+    
+    @Override
+	public void regRecipe() {
+    	GameRegistry.addRecipe(new ItemStack(this, 6, 0), "###", '#', new ItemStack(NContent.grassBlock, 1, 0));
+    	GameRegistry.addRecipe(new ItemStack(this, 6, 1), "###", '#', new ItemStack(NContent.grassBlock, 1, 1));
+    	GameRegistry.addRecipe(new ItemStack(this, 6, 2), "###", '#', new ItemStack(NContent.grassBlock, 1, 2));
+	}
 }

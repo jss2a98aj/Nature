@@ -134,6 +134,13 @@ public class NDoorItem extends Item implements NReg
 
 	@Override
 	public void regRecipe() {
+		GameRegistry.addRecipe(new ItemStack(this, 3, 0), "##", "##", "##", '#', new ItemStack(NContent.planks, 1, 3));
+    	GameRegistry.addRecipe(new ItemStack(this, 3, 1), "##", "##", "##", '#', new ItemStack(NContent.planks, 1, 0));
+    	GameRegistry.addRecipe(new ItemStack(this, 3, 2), "##", "##", "##", '#', new ItemStack(NContent.planks, 1, 5));
+    	GameRegistry.addRecipe(new ItemStack(this, 3, 3), "##", "##", "##", '#', new ItemStack(NContent.planks, 1, 1));
+    	GameRegistry.addRecipe(new ItemStack(this, 3, 4), "##", "##", "##", '#', new ItemStack(NContent.planks, 1, 2));
+    	GameRegistry.addRecipe(new ItemStack(this, 3, 5), "##", "##", "##", '#', new ItemStack(NContent.planks, 1, 4));
+    	GameRegistry.addRecipe(new ItemStack(this, 3, 6), "##", "##", "##", '#', new ItemStack(NContent.redwood, 1, 0));
 	}
 
 	@Override

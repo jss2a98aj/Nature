@@ -5,6 +5,7 @@ import java.util.List;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import mods.natura.Natura;
+import mods.natura.common.PHNatura;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,14 +14,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
 
-public class PlantItem extends Item
-{
+public class PlantItem extends Item {
     public String[] textureNames = {"barley_plant", "barley_flour", "wheat_flour", "cotton_plant", "sulfur", "ghostwood_fletching", "leather_imp", "flamestring", "dye_blue"};
     public String[] unlocalizedNames = {"barley.plant", "barley.flour", "wheat.flour", "cotton.plant", "powder.sulfur", "fletching.ghostwood", "leather.imp", "string.flame", "dye.blue"};
     public IIcon[] icons;
 
-    public PlantItem()
-    {
+    public PlantItem() {
         super();
 
         this.setCreativeTab(Natura.tab);
@@ -29,17 +28,14 @@ public class PlantItem extends Item
     }
 
     @Override
-    public String getUnlocalizedName (ItemStack itemstack)
-    {
+    public String getUnlocalizedName (ItemStack itemstack) {
         return (new StringBuilder()).append("item.").append(unlocalizedNames[itemstack.getItemDamage()]).toString();
     }
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void addInformation (ItemStack stack, EntityPlayer player, List list, boolean par4)
-    {
-        switch (stack.getItemDamage())
-        {
+    public void addInformation (ItemStack stack, EntityPlayer player, List list, boolean par4) {
+        switch (stack.getItemDamage()) {
         case 0:
             list.add(StatCollector.translateToLocal("tooltip.barley"));
             break;
@@ -52,7 +48,8 @@ public class PlantItem extends Item
             list.add(StatCollector.translateToLocal("tooltip.cotton"));
             break;
         case 4:
-            list.add(StatCollector.translateToLocal("tooltip.sulfur"));
+        	if(!PHNatura.enableSulferRecipe)
+        	    list.add(StatCollector.translateToLocal("tooltip.sulfur"));
             break;
         case 5:
             list.add(StatCollector.translateToLocal("tooltip.fletching"));
@@ -65,15 +62,13 @@ public class PlantItem extends Item
 
     @SideOnly(Side.CLIENT)
     @Override
-    public IIcon getIconFromDamage (int meta)
-    {
+    public IIcon getIconFromDamage (int meta) {
         return icons[meta];
     }
 
     @SideOnly(Side.CLIENT)
     @Override
-    public void registerIcons (IIconRegister iconRegister)
-    {
+    public void registerIcons (IIconRegister iconRegister) {
         this.icons = new IIcon[textureNames.length];
 
         for (int i = 0; i < this.icons.length; ++i)
@@ -81,9 +76,10 @@ public class PlantItem extends Item
     }
 
     @Override
-    public void getSubItems (Item id, CreativeTabs tab, List list)
-    {
-        for (int i = 0; i < unlocalizedNames.length; i++)
+    public void getSubItems (Item id, CreativeTabs tab, List list) {
+    	list.add(new ItemStack(id, 1, 0));
+        for (int i = 2; i < unlocalizedNames.length; i++)
             list.add(new ItemStack(id, 1, i));
     }
+
 }

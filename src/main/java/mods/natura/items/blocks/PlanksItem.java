@@ -21,12 +21,6 @@ public class PlanksItem extends MultiItemBlock
         setHasSubtypes(true);
     }
 
-    /*    @Override
-        public String getUnlocalizedName (ItemStack itemstack)
-        {
-            return (new StringBuilder()).append(blockType[itemstack.getItemDamage()]).append("NPlanks").toString();
-        }*/
-
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation (ItemStack stack, EntityPlayer player, List list, boolean par4)
