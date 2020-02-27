@@ -128,7 +128,7 @@ block.wood.willow.slab.name=Willow Slab
 block.wood.tiger.slab.name=Tigerwood Slab
 block.wood.maple.slab.name=Maple Slab
 block.wood.purpleheart.slab.name=Purpleheart Slab
-block.wood.silverbell.slab.name=Silverbell Slab 
+block.wood.silverbell.slab.name=Silverbell Slab
 
 tile.door.eucalyptus.name=Eucalyptus Door
 tile.door.sakura.name=Sakura Door
@@ -192,7 +192,7 @@ tile.button.willow.name=Willow Button
 tile.button.tiger.name=Tigerwood Button
 tile.button.maple.name=Maple Button
 tile.button.purpleheart.name=Purpleheart Button
-tile.button.silverbell.name=Silverbell Button 
+tile.button.silverbell.name=Silverbell Button
 
 tile.trapdoor.eucalyptus.name=Eucalyptus Trapdoor
 tile.trapdoor.sakura.name=Sakura Trapdoor
