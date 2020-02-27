@@ -79,9 +79,9 @@ redwoodNDoor.name=Redwood Door
 eucalyptusNDoor.name=Eucalyptus Door
 hopseedNDoor.name=Hopseed Door
 sakuraNDoor.name=Sakura Door
-ghostNDoor.name=Ghostwood Door
-bloodNDoor.name=Bloodwood Door
-redwoodBarkNDoor.name=Redwood Bark Door
+ghostwoodNDoor.name=Ghostwood Door
+bloodwoodNDoor.name=Bloodwood Door
+redwoodbarkNDoor.name=Redwood Bark Door
 
 block.bark.redwood.name=Redwood Bark
 block.heart.redwood.name=Redwood
