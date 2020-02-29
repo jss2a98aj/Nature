@@ -28,9 +28,9 @@ public class LargeGlowshroom extends Block
     @SideOnly(Side.CLIENT)
     private IIcon iconInside;
 
-    public LargeGlowshroom(Material par2Material, String type)
+    public LargeGlowshroom(Material material, String type)
     {
-        super(par2Material);
+        super(material);
         mushroomType = type;
         this.setStepSound(Block.soundTypeWood);
         this.setHardness(0.2F);
@@ -91,8 +91,8 @@ public class LargeGlowshroom extends Block
     @Override
     public boolean shouldSideBeRendered (IBlockAccess iblockaccess, int x, int y, int z, int side)
     {
-        Block blockID = iblockaccess.getBlock(x, y, z);
-        return blockID == NContent.glowshroomBlue || blockID == NContent.glowshroomPurple ? false : super.shouldSideBeRendered(iblockaccess, x, y, z, side);
+        Block block = iblockaccess.getBlock(x, y, z);
+        return block == NContent.glowshroomBlue || block == NContent.glowshroomPurple || block == NContent.glowshroomGreen ? false : super.shouldSideBeRendered(iblockaccess, x, y, z, side);
     }
 
     /**
@@ -119,16 +119,14 @@ public class LargeGlowshroom extends Block
      * is the only chance you get to register icons.
      */
     @Override
-    public void registerBlockIcons (IIconRegister iconregister)
-    {
+    public void registerBlockIcons (IIconRegister iconregister) {
         this.iconSkin = iconregister.registerIcon("natura:mushroom_skin_" + mushroomType);
         this.iconInside = iconregister.registerIcon("natura:mushroom_inside_" + mushroomType);
         this.iconStem = iconregister.registerIcon("natura:mushroom_stem_" + mushroomType);
     }
 
     @Override
-    public AxisAlignedBB getCollisionBoundingBoxFromPool (World world, int x, int y, int z)
-    {
+    public AxisAlignedBB getCollisionBoundingBoxFromPool (World world, int x, int y, int z) {
     	return world.getBlock(x, y + 1, z) instanceof LargeGlowshroom ? null : AxisAlignedBB.getBoundingBox(x, y + 0.9375, z, x + 1.0D, (double) y + 1, z + 1.0D);
     }
 
