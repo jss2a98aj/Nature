@@ -73,13 +73,13 @@ public class NetherBerryBush extends BlockLeavesBase implements IPlantable {
     public AxisAlignedBB getCollisionBoundingBoxFromPool (World world, int x, int y, int z) {
         int l = world.getBlockMetadata(x, y, z);
         return l < 4 ? AxisAlignedBB.getBoundingBox(x + 0.25D, y, z + 0.25D, x + 0.75D, y + 0.5D, z + 0.75D)
-        		: l < 8 ? AxisAlignedBB.getBoundingBox(x + 0.125D, y, z + 0.125D, x + 0.875D, y + 0.75D, z + 0.875D)
-        				: AxisAlignedBB.getBoundingBox(x, y, z, x + 1.0D, y + 1.0D, z + 1.0D);
+                : l < 8 ? AxisAlignedBB.getBoundingBox(x + 0.125D, y, z + 0.125D, x + 0.875D, y + 0.75D, z + 0.875D)
+                        : AxisAlignedBB.getBoundingBox(x, y, z, x + 1.0D, y + 1.0D, z + 1.0D);
     }
 
     @Override
     public AxisAlignedBB getSelectedBoundingBoxFromPool (World world, int x, int y, int z) {
-    	return getCollisionBoundingBoxFromPool(world, x, y, z);
+        return getCollisionBoundingBoxFromPool(world, x, y, z);
     }
 
     @Override
@@ -164,8 +164,34 @@ public class NetherBerryBush extends BlockLeavesBase implements IPlantable {
 
     @SideOnly(Side.CLIENT)
     @Override
-    public boolean shouldSideBeRendered(IBlockAccess iblockaccess, int x, int y, int z, int side) {
-    	return side > 7 || Blocks.leaves.isOpaqueCube() ? (side == 0 && this.minY > 0.0D ? true : (side == 1 && this.maxY < 1.0D ? true : (side == 2 && this.minZ > 0.0D ? true : (side == 3 && this.maxZ < 1.0D ? true : (side == 4 && this.minX > 0.0D ? true : (side == 5 && this.maxX < 1.0D ? true : !iblockaccess.getBlock(x, y, z).isOpaqueCube())))))) : true;
+    public boolean shouldSideBeRendered(IBlockAccess blockAccess, int x, int y, int z, int side) {
+        Block block = blockAccess.getBlock(x, y, z);
+        //If the block touching the side is same type of bush and not fully grown then render side.
+        if (block == this & blockAccess.getBlockMetadata(x, y, z) < 8) {
+            return true;
+        //If this block is fully grown and is touching a bush (fast mode) or solid block then don't render (Would be way less complex if metadata was passed in)
+        } else if ((Blocks.leaves.isOpaqueCube() & block == this) | block.isOpaqueCube()) {
+            switch(side) {
+            case 0://-y
+                return false;
+            case 1://+y
+                if (blockAccess.getBlockMetadata(x, y - 1, z) > 7) return false;
+                break;
+            case 2://-z
+                if (blockAccess.getBlockMetadata(x, y, z + 1) > 7) return false;
+                break;
+            case 3://+z
+                if (blockAccess.getBlockMetadata(x, y, z - 1) > 7) return false;
+                break;
+            case 4://-x
+                if (blockAccess.getBlockMetadata(x + 1, y, z) > 7) return false;
+                break;
+            case 5://+x
+                if (blockAccess.getBlockMetadata(x - 1, y, z) > 7) return false;
+            }
+        }
+        //If none of the above then render side.
+        return true;
     }
 
     /* Bush growth */
@@ -245,8 +271,8 @@ public class NetherBerryBush extends BlockLeavesBase implements IPlantable {
 
         Block block = world.getBlock(x, y + 1, z);
         if (block == null || world.isAirBlock(x, y + 1, z)) {
-        	if (random.nextBoolean() && random.nextInt(3) == 0)
-        		world.setBlock(x, y + 1, z, this, meta % 4, 3);
+            if (random.nextBoolean() && random.nextInt(3) == 0)
+                world.setBlock(x, y + 1, z, this, meta % 4, 3);
 
             return true;
         }
