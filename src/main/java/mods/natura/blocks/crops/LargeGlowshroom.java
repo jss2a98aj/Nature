@@ -43,15 +43,15 @@ public class LargeGlowshroom extends Block
      */
     public IIcon getIcon (int side, int meta)
     {
-        return meta == 10 && side > 1 ?	this.iconStem
-        		: meta >= 1 && meta <= 9 && side == 1 ? this.iconSkin
-        				: meta >= 1 && meta <= 3 && side == 2 ? this.iconSkin
-        						: meta >= 7 && meta <= 9 && side == 3 ? this.iconSkin
-        								: (meta == 1 || meta == 4 || meta == 7) && side == 4 ? this.iconSkin
-        										: (meta == 3 || meta == 6 || meta == 9) && side == 5 ? this.iconSkin
-        												: meta == 14 ? this.iconSkin
-        														: meta == 15 ? this.iconStem
-        																: this.iconInside;
+        return meta == 10 && side > 1 ?    this.iconStem
+                : meta >= 1 && meta <= 9 && side == 1 ? this.iconSkin
+                        : meta >= 1 && meta <= 3 && side == 2 ? this.iconSkin
+                                : meta >= 7 && meta <= 9 && side == 3 ? this.iconSkin
+                                        : (meta == 1 || meta == 4 || meta == 7) && side == 4 ? this.iconSkin
+                                                : (meta == 3 || meta == 6 || meta == 9) && side == 5 ? this.iconSkin
+                                                        : meta == 14 ? this.iconSkin
+                                                                : meta == 15 ? this.iconStem
+                                                                        : this.iconInside;
     }
 
     /**
@@ -89,10 +89,9 @@ public class LargeGlowshroom extends Block
     }
 
     @Override
-    public boolean shouldSideBeRendered (IBlockAccess iblockaccess, int x, int y, int z, int side)
+    public boolean shouldSideBeRendered (IBlockAccess blockAccess, int x, int y, int z, int side)
     {
-        Block block = iblockaccess.getBlock(x, y, z);
-        return block == NContent.glowshroomBlue || block == NContent.glowshroomPurple || block == NContent.glowshroomGreen ? false : super.shouldSideBeRendered(iblockaccess, x, y, z, side);
+        return blockAccess.getBlock(x, y, z) == this ? false : super.shouldSideBeRendered(blockAccess, x, y, z, side);
     }
 
     /**
@@ -127,7 +126,7 @@ public class LargeGlowshroom extends Block
 
     @Override
     public AxisAlignedBB getCollisionBoundingBoxFromPool (World world, int x, int y, int z) {
-    	return world.getBlock(x, y + 1, z) instanceof LargeGlowshroom ? null : AxisAlignedBB.getBoundingBox(x, y + 0.9375, z, x + 1.0D, (double) y + 1, z + 1.0D);
+        return world.getBlock(x, y + 1, z) instanceof LargeGlowshroom ? null : AxisAlignedBB.getBoundingBox(x, y + 0.9375, z, x + 1.0D, (double) y + 1, z + 1.0D);
     }
 
     @Override
